@@ -1,0 +1,11 @@
+C:\Users\cedro_nds\source\repos\Sistema de Restaurantes\Sistema de Restaurantes\bin\Debug\netcoreapp2.0\Sistema de Restaurantes.deps.json
+C:\Users\cedro_nds\source\repos\Sistema de Restaurantes\Sistema de Restaurantes\bin\Debug\netcoreapp2.0\Sistema de Restaurantes.runtimeconfig.json
+C:\Users\cedro_nds\source\repos\Sistema de Restaurantes\Sistema de Restaurantes\bin\Debug\netcoreapp2.0\Sistema de Restaurantes.runtimeconfig.dev.json
+C:\Users\cedro_nds\source\repos\Sistema de Restaurantes\Sistema de Restaurantes\bin\Debug\netcoreapp2.0\Sistema de Restaurantes.dll
+C:\Users\cedro_nds\source\repos\Sistema de Restaurantes\Sistema de Restaurantes\bin\Debug\netcoreapp2.0\Sistema de Restaurantes.pdb
+C:\Users\cedro_nds\source\repos\Sistema de Restaurantes\Sistema de Restaurantes\obj\Debug\netcoreapp2.0\Sistema de Restaurantes.csprojAssemblyReference.cache
+C:\Users\cedro_nds\source\repos\Sistema de Restaurantes\Sistema de Restaurantes\obj\Debug\netcoreapp2.0\Sistema de Restaurantes.csproj.CoreCompileInputs.cache
+C:\Users\cedro_nds\source\repos\Sistema de Restaurantes\Sistema de Restaurantes\obj\Debug\netcoreapp2.0\Sistema de Restaurantes.AssemblyInfoInputs.cache
+C:\Users\cedro_nds\source\repos\Sistema de Restaurantes\Sistema de Restaurantes\obj\Debug\netcoreapp2.0\Sistema de Restaurantes.AssemblyInfo.cs
+C:\Users\cedro_nds\source\repos\Sistema de Restaurantes\Sistema de Restaurantes\obj\Debug\netcoreapp2.0\Sistema de Restaurantes.dll
+C:\Users\cedro_nds\source\repos\Sistema de Restaurantes\Sistema de Restaurantes\obj\Debug\netcoreapp2.0\Sistema de Restaurantes.pdb
