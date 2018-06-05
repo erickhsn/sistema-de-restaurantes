@@ -72,6 +72,18 @@ namespace Sistema_de_Restaurantes.Controllers
             return NoContent();
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(long id)
+        {
+            var prato = _restaurante.pratos.Find(id);
+            if (prato == null)
+                return NotFound();
+
+            _restaurante.pratos.Remove(prato);
+            _restaurante.SaveChanges();
+            return NoContent();
+        }
+
     }
 
 }
