@@ -14,7 +14,7 @@ namespace Sistema_de_Restaurantes.Controllers
     {
 
         private readonly Restaurante _restaurante;
-
+        
         public RestauranteController(Restaurante restaurante)
         {
             _restaurante = restaurante;

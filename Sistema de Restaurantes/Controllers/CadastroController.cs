@@ -6,19 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Sistema_de_Restaurantes.Controllers
 {
-    public class HomeController : Controller
+    public class CadastroController : Controller
     {
-        public IActionResult Index()
+        public IActionResult cadastroRestaurante()
         {
             return View();
         }
 
-        public IActionResult Restaurantes()
-        {
-            return View();
-        }
-
-        public IActionResult Pratos()
+        public IActionResult cadastroPrato()
         {
             return View();
         }

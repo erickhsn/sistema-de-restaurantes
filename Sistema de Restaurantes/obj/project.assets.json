@@ -13250,23 +13250,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\erick\\.nuget\\packages\\": {},
+    "C:\\Users\\cedro_nds\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projetos\\sistema-de-restaurantes\\Sistema de Restaurantes\\Sistema de Restaurantes.csproj",
+      "projectUniqueName": "C:\\Users\\cedro_nds\\source\\repos\\Sistema de Restaurantes\\Sistema de Restaurantes\\Sistema de Restaurantes.csproj",
       "projectName": "Sistema de Restaurantes",
-      "projectPath": "D:\\Projetos\\sistema-de-restaurantes\\Sistema de Restaurantes\\Sistema de Restaurantes.csproj",
-      "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-      "outputPath": "D:\\Projetos\\sistema-de-restaurantes\\Sistema de Restaurantes\\obj\\",
+      "projectPath": "C:\\Users\\cedro_nds\\source\\repos\\Sistema de Restaurantes\\Sistema de Restaurantes\\Sistema de Restaurantes.csproj",
+      "packagesPath": "C:\\Users\\cedro_nds\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cedro_nds\\source\\repos\\Sistema de Restaurantes\\Sistema de Restaurantes\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cedro_nds\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
