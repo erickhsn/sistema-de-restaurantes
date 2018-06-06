@@ -1,0 +1,46 @@
+﻿<h3>RESTAURANTES</h3>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Filtros</div>
+    <div class="panel-body">
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome">
+            </div>
+            <div class="form-inline">
+                <button type="submit" class="btn btn-info">
+                    <span class="glyphicon glyphicon-search"></span> Pesquisar
+                </button>
+                <button asp-area="" asp-controller="Cadastro" asp-action="CadastroRestaurante" class="btn btn-success">
+                    <span class="glyphicon glyphicon-plus"></span> Cadastrar novo Restaurante
+                </button>
+            </div>
+
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Restaurantes</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <!-- Aqui sera adicionado o carregamento das informações utilizando o Angular-->
+                <tr>
+                    <td><span class="glyphicon glyphicon-minus text-danger"></span></td>
+                    <td><span class="glyphicon glyphicon-pencil text-info"></span></td>
+                    <td>item1</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+</div>

@@ -1,0 +1,31 @@
+﻿<h3>PRATOS</h3>
+
+
+<button asp-area="" asp-controller="Cadastro" asp-action="CadastroPrato" class="btn btn-success" [routerLink]="['/cadastro/prato']">
+    <span class="glyphicon glyphicon-plus"></span> Cadastrar novo Prato
+</button>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Restaurante</th>
+            <th>Prato</th>
+            <th>Preço</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <!-- Aqui sera adicionado o carregamento das informações utilizando o Angular-->
+        <tr *ngFor="let prato of pratos">
+            <td><span class="glyphicon glyphicon-minus text-danger"></span></td>
+            <td><span class="glyphicon glyphicon-pencil text-info"></span></td>
+            <td>Restaurante 1</td>
+            <td>{{prato.nome}}</td>
+            <td>{{prato.preco}}</td>
+        </tr>
+
+    </tbody>
+</table>
