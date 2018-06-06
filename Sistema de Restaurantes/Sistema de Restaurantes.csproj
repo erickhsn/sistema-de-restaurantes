@@ -3,11 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <RootNamespace>Sistema_de_Restaurantes</RootNamespace>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Remove="Views\Home\index.cshtml" />
-    <Content Remove="Views\Shared\navbar.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="src\app\api.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="src\app\api.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,7 +29,6 @@
 
   <ItemGroup>
     <None Include="Views\Home\index.cshtml" />
-    <None Include="Views\Shared\navbar.cshtml" />
   </ItemGroup>
 
 </Project>
