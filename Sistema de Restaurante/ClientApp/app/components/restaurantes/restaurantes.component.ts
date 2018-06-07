@@ -1,13 +1,13 @@
 ﻿import { Component, Inject } from '@angular/core';
 import { Http } from '@angular/http';
-import { Restaurante } from '../../restaurantes/restaurantes.component';
+import { inject } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
-    selector: 'cadastro-prato',
-    templateUrl: './cadastro.prato.component.html'
+    selector: 'restaurantes',
+    templateUrl: './restaurantes.component.html'
 })
-export class CadastroPratoComponent {
+export class RestaurantesComponent {
     public restaurantes: Restaurante[] | undefined;
 
     baseUrl: string = "";
@@ -17,12 +17,17 @@ export class CadastroPratoComponent {
         this.listarRestaurantes();
     }  
 
-
-    public listarRestaurantes() {
+    public listarRestaurantes()
+    {
         this.http.get(this.baseUrl + '/api/restaurante').subscribe(result => {
             this.restaurantes = result.json() as Restaurante[];
         }, error => console.error(error));
         return this.restaurantes;
     }
+}
 
+export interface Restaurante {
+    id: number;
+    nome: string;
+    pratos: object;
 }

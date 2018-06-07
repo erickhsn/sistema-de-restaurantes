@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Sistema_de_Restaurante.models;
+using Sistema_de_Restaurante.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Sistema_de_Restaurante.Controllers
 {
@@ -11,45 +12,63 @@ namespace Sistema_de_Restaurante.Controllers
     public class RestauranteController : Controller
     {
 
-        private readonly Restaurante _restaurante;
+        private readonly Context _context;
 
-        public RestauranteController(Restaurante restaurante)
+        public RestauranteController(Context context)
         {
-            _restaurante = restaurante;
-
-            if (_restaurante.pratos.Count() == 0)
+            _context = context;
+            
+            if (_context.restaurantes.Count() == 0)
             {
-                _restaurante.pratos.Add(new Prato { nome = "Item 1" });
-                _restaurante.SaveChanges();
+                _context.restaurantes.Add(new Restaurante { nome = "Restaurante 1", pratos = new List<Prato>() });
+                _context.SaveChanges();
             }
         }
 
         [HttpGet]
-        public List<Prato> getAll()
+        public List<Restaurante> getAll()
         {
-            return _restaurante.pratos.ToList();
+            return _context.restaurantes.ToList();
         }
 
+        [HttpPost("insereprato/{id}", Name ="inserePrato")]
+        public IActionResult adicionaPratos(long id, [FromBody] Prato prato)
+        {
+            var item = _context.restaurantes.Find(id);
+            if (prato == null || item == null)
+                return BadRequest();
+
+            item.pratos.Add(prato);
+            _context.SaveChanges();
+
+            return Ok(prato);
+        }
+
+
+        [HttpPost]
+        public IActionResult Create([FromBody] Restaurante restaurante)
+        {
+            if (restaurante == null)
+                return BadRequest();
+
+            _context.restaurantes.Add(restaurante);
+            _context.SaveChanges();
+
+
+            return Ok(restaurante);
+
+        }
+
+
+
+        /*
         [HttpGet("{id}", Name = "GetPrato")]
         public IActionResult GetById(long id)
         {
             var item = _restaurante.pratos.Find(id);
             if (item == null)
                 return NotFound();
-            return Ok(item);
-        }
-
-        [HttpPost]
-        public IActionResult Create([FromBody] Prato prato)
-        {
-            if (prato == null)
-                return BadRequest();
-
-            _restaurante.pratos.Add(prato);
-            _restaurante.SaveChanges();
-
-            return CreatedAtRoute("GetPrato", new { id = prato.id }, prato);
-
+            return Ok(_restaurante);
         }
 
         [HttpPut("{id}")]
@@ -80,7 +99,7 @@ namespace Sistema_de_Restaurante.Controllers
             _restaurante.pratos.Remove(prato);
             _restaurante.SaveChanges();
             return NoContent();
-        }
+        }*/
 
     }
 }

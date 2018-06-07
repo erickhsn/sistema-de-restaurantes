@@ -12,7 +12,7 @@
                 <button type="submit" class="btn btn-info">
                     <span class="glyphicon glyphicon-search"></span> Pesquisar
                 </button>
-                <button asp-area="" asp-controller="Cadastro" asp-action="CadastroRestaurante" class="btn btn-success">
+                <button  class="btn btn-success" [routerLink]="['/cadastro/restaurante']">
                     <span class="glyphicon glyphicon-plus"></span> Cadastrar novo Restaurante
                 </button>
             </div>
@@ -30,10 +30,10 @@
             <tbody>
 
                 <!-- Aqui sera adicionado o carregamento das informações utilizando o Angular-->
-                <tr>
+                <tr *ngFor="let restaurante of restaurantes">
                     <td><span class="glyphicon glyphicon-minus text-danger"></span></td>
                     <td><span class="glyphicon glyphicon-pencil text-info"></span></td>
-                    <td>item1</td>
+                    <td>{{restaurante.nome}} </td>
                 </tr>
 
             </tbody>

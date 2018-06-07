@@ -3,10 +3,10 @@
 <div class="panel panel-default">
     <div class="panel-heading">Dados</div>
     <div class="panel-body">
-        <form action="#" method="post">
+        <form novalidate [formGroup]="restauranteForm" (ngSubmit)="save()" >
             <div class="form-group">
                 <label for="nome">Nome do Restaurante</label>
-                <input type="text" class="form-control" id="nome" />
+                <input type="text" class="form-control" formControlName="nome" />
             </div>
 
             <div class="form-inline">

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using Sistema_de_Restaurante.models;
+using Sistema_de_Restaurante.Models;
 
 namespace Sistema_de_Restaurante
 {
@@ -24,7 +24,7 @@ namespace Sistema_de_Restaurante
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<Restaurante>(opt => opt.UseInMemoryDatabase("Restaurante"));
+            services.AddDbContext<Context>(opt => opt.UseInMemoryDatabase("Context"));
             services.AddMvc();
         }
 

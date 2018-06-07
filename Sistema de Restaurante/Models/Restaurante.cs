@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
-namespace Sistema_de_Restaurante.models
-{
-    public class Restaurante : DbContext
-{
-    public long id { get; set; }
-    public string name { get; set; }
-    public DbSet<Prato> pratos { get; set; }
+namespace Sistema_de_Restaurante.Models
+{ 
+    public class Restaurante
+    {
+        public long id { get; set; }
+        public string nome { get; set; }
 
-    public Restaurante(DbContextOptions<Restaurante> options) : base(options) { }
-
-}
+        public List<Prato> pratos { get; set; }
+    }
 }

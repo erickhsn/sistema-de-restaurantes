@@ -1,7 +1,7 @@
 ﻿<h3>PRATOS</h3>
 
 
-<button asp-area="" asp-controller="Cadastro" asp-action="CadastroPrato" class="btn btn-success" [routerLink]="['/cadastro/prato']">
+<button class="btn btn-success" [routerLink]="['/cadastro/prato']">
     <span class="glyphicon glyphicon-plus"></span> Cadastrar novo Prato
 </button>
 
@@ -22,7 +22,7 @@
         <tr *ngFor="let prato of pratos">
             <td><span class="glyphicon glyphicon-minus text-danger"></span></td>
             <td><span class="glyphicon glyphicon-pencil text-info"></span></td>
-            <td>Restaurante 1</td>
+            <td>{{prato.restaurante.nome}}</td>
             <td>{{prato.nome}}</td>
             <td>{{prato.preco}}</td>
         </tr>
