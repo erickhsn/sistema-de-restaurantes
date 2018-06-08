@@ -28,20 +28,7 @@ namespace Sistema_de_Restaurante.Controllers
         [HttpGet]
         public List<Restaurante> getAll()
         {
-            return _context.restaurantes.ToList();
-        }
-
-        [HttpPost("insereprato/{id}", Name ="inserePrato")]
-        public IActionResult adicionaPratos(long id, [FromBody] Prato prato)
-        {
-            var item = _context.restaurantes.Find(id);
-            if (prato == null || item == null)
-                return BadRequest();
-
-            item.pratos.Add(prato);
-            _context.SaveChanges();
-
-            return Ok(prato);
+            return _context.restaurantes.Include(r => r.pratos).ToList();
         }
 
 

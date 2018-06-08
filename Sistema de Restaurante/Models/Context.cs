@@ -19,7 +19,8 @@ namespace Sistema_de_Restaurante.Models
         {
             modelBuilder.Entity<Prato>()
                 .HasOne(p => p.restaurante)
-                .WithMany(r => r.pratos);
+                .WithMany(r => r.pratos)
+                .HasForeignKey(p => p.restauranteId);
         }
     }
 }

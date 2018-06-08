@@ -10,18 +10,11 @@ namespace Sistema_de_Restaurante.Controllers
     [Route("api/[controller]")]
     public class PratoController : Controller
     {
-        private Context _context = new Context();
+        private readonly Context _context;
 
         public PratoController(Context context)
         {
             _context = context;
-
-            if (_context.pratos.Count() == 0)
-            {
-
-                _context.AddRange(_context);
-                _context.SaveChanges();
-            }
         }
 
         [HttpGet]
@@ -29,19 +22,28 @@ namespace Sistema_de_Restaurante.Controllers
         {
             return _context.pratos.ToList();
         }
-        /*
+        
         [HttpPost]
-        public IActionResult Create([FromBody] Prato restaurante)
+        public IActionResult Create([FromBody] Prato prato)
         {
-            if (restaurante == null)
+            var item = _context.restaurantes.Find(prato.restauranteId);
+            if (prato == null || item == null)
                 return BadRequest();
 
-            _context.restaurantes.Add(restaurante);
+            Restaurante r = _context.restaurantes.Single(res => res.id == prato.restauranteId);
+
+            Prato p = new Prato
+            {
+                nome = prato.nome,
+                preco = prato.preco,
+                restaurante = r
+            };
+
+            _context.pratos.Add(p);
             _context.SaveChanges();
 
+            return Ok(p);
 
-            return Ok(restaurante);
-
-        }*/
+        }
     }
 }

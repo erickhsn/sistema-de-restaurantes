@@ -3,10 +3,10 @@
 <div class="panel panel-default">
     <div class="panel-heading">Dados</div>
     <div class="panel-body">
-        <form action="#" method="post">
+        <form novalidate [formGroup]="pratosForm" (ngSubmit)="save()">
             <div class="form-group">
                 <label for="SelRestaurantes">Restaurante</label>
-                <select class="form-control" id="SelRestaurantes">
+                <select class="form-control" (ngModelChange)="onChangeObj($event)">
                     <option *ngFor="let restaurante of restaurantes">{{restaurante.nome}}</option>
                 </select>
             </div>
@@ -28,6 +28,8 @@
                     <span class="glyphicon glyphicon-floppy-disk"></span> Salvar
                 </button>
             </div>
+
+            {{selectedDeviceObj | json}}
         </form>
     </div>
 </div>

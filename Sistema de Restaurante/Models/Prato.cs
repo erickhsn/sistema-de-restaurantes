@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +12,10 @@ namespace Sistema_de_Restaurante.Models
         public string nome { get; set; }
         public float preco { get; set; }
 
+        public long restauranteId { get; set; }
+
+        [JsonIgnore]
         public Restaurante restaurante { get; set; }
+        
     }
 }
