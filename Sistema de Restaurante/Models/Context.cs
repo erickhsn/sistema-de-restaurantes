@@ -11,9 +11,8 @@ namespace Sistema_de_Restaurante.Models
         public DbSet<Prato> pratos { get; set; }
         public DbSet<Restaurante> restaurantes { get; set; }
 
-        public Context() { }
-
-        public Context(DbContextOptions<Context> options) : base(options) { }
+        public Context(DbContextOptions<Context> options) : base(options) {
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

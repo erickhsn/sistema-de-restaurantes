@@ -18,14 +18,15 @@ namespace Sistema_de_Restaurante.Controllers
         }
 
         [HttpGet]
-        public List<Prato> getAll()
+        public IActionResult getAll()
         {
-            return _context.pratos.ToList();
+            return Ok(_context.pratos);
         }
-        
+
         [HttpPost]
         public IActionResult Create([FromBody] Prato prato)
         {
+            
             var item = _context.restaurantes.Find(prato.restauranteId);
             if (prato == null || item == null)
                 return BadRequest();
@@ -36,7 +37,7 @@ namespace Sistema_de_Restaurante.Controllers
             {
                 nome = prato.nome,
                 preco = prato.preco,
-                restaurante = r
+                restaurante = r     
             };
 
             _context.pratos.Add(p);
@@ -45,5 +46,36 @@ namespace Sistema_de_Restaurante.Controllers
             return Ok(p);
 
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(long id, [FromBody] Prato prato)
+        {
+            if (prato == null || prato.id != id)
+                return BadRequest();
+
+            var p = _context.pratos.Find(id);
+            if (p == null)
+                return NotFound();
+
+            p.nome = prato.nome;
+            p.preco = prato.preco;
+            
+            _context.pratos.Update(p);
+            _context.SaveChanges();
+            return Ok(p);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(long id)
+        {
+            var prato = _context.pratos.Find(id);
+            if (prato == null)
+                return NotFound();
+
+            _context.pratos.Remove(prato);
+            _context.SaveChanges();
+            return Ok(prato);
+        }
+
     }
 }

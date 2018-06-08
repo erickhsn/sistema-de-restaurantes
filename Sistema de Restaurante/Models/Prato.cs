@@ -14,7 +14,6 @@ namespace Sistema_de_Restaurante.Models
 
         public long restauranteId { get; set; }
 
-        [JsonIgnore]
         public Restaurante restaurante { get; set; }
         
     }

@@ -16,16 +16,14 @@
             <th>Preço</th>
         </tr>
     </thead>
-    <tbody>
-
+    <tbody *ngFor="let restaurante of restaurantes" >
         <!-- Aqui sera adicionado o carregamento das informações utilizando o Angular-->
-        <tr *ngFor="let prato of pratos">
-            <td><span class="glyphicon glyphicon-minus text-danger"></span></td>
-            <td><span class="glyphicon glyphicon-pencil text-info"></span></td>
-            <td>{{prato.restaurante.nome}}</td>
-            <td>{{prato.nome}}</td>
-            <td>{{prato.preco}}</td>
-        </tr>
-
+            <tr *ngFor="let prato of restaurante.pratos; let i = index" >
+                <td><span class="glyphicon glyphicon-minus text-danger"></span></td>
+                <td><span class="glyphicon glyphicon-pencil text-info"></span></td>
+                <td>{{restaurante.nome}}</td>
+                <td>{{restaurante.pratos[i].nome}}</td>
+                <td>{{restaurante.pratos[i].preco}}</td>
+            </tr>
     </tbody>
 </table>

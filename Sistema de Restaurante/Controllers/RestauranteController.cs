@@ -46,47 +46,46 @@ namespace Sistema_de_Restaurante.Controllers
 
         }
 
-
-
-        /*
-        [HttpGet("{id}", Name = "GetPrato")]
+        
+        /*[HttpGet("{id}", Name = "GetRestaurante")]
         public IActionResult GetById(long id)
         {
-            var item = _restaurante.pratos.Find(id);
+            var item = _context.restaurantes.Find(id);
             if (item == null)
                 return NotFound();
-            return Ok(_restaurante);
-        }
+            return Ok(item.nome);
+        }*/
 
+        
         [HttpPut("{id}")]
-        public IActionResult Update(long id, [FromBody] Prato prato)
+        public IActionResult Update(long id, [FromBody] Restaurante restaurante)
         {
-            if (prato == null || prato.id != id)
+            if (restaurante == null || restaurante.id != id)
                 return BadRequest();
 
-            var p = _restaurante.pratos.Find(id);
-            if (p == null)
+            var r = _context.restaurantes.Find(id);
+            if (r == null)
                 return NotFound();
 
-            p.nome = prato.nome;
-            p.preco = prato.preco;
+            r.nome = restaurante.nome;
 
-            _restaurante.pratos.Update(p);
-            _restaurante.SaveChanges();
-            return NoContent();
+            _context.restaurantes.Update(r);
+            _context.SaveChanges();
+            return Ok(r);
         }
 
+        
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
-            var prato = _restaurante.pratos.Find(id);
-            if (prato == null)
+            var restaurante = _context.restaurantes.Find(id);
+            if (restaurante == null)
                 return NotFound();
 
-            _restaurante.pratos.Remove(prato);
-            _restaurante.SaveChanges();
-            return NoContent();
-        }*/
+            _context.restaurantes.Remove(restaurante);
+            _context.SaveChanges();
+            return Ok(restaurante);
+        }
 
     }
 }

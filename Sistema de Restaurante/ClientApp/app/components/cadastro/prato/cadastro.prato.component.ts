@@ -11,8 +11,9 @@ export class CadastroPratoComponent implements OnInit {
     public restaurantes: Restaurante[] | undefined;
     public pratosForm: FormGroup | undefined;
 
+
     baseUrl: string = "";
-    selectedDeviceObj: Restaurante | undefined;
+    restauranteId: Number;
     primeiro: boolean = true;
 
     ngOnInit() {
@@ -24,18 +25,18 @@ export class CadastroPratoComponent implements OnInit {
     }
 
 
-    onChangeObj(newObj: Restaurante) {
-        if (this.primeiro && this.restaurantes != null) {
-            this.selectedDeviceObj = this.restaurantes[0];
+    onChangeObj(newObj: Number) {
+        if (newObj == null) {
+            alert("Element can't be null");
+            return;
         }
-        console.log(newObj);
-        this.selectedDeviceObj = newObj;
-        // ... do other stuff here ...
+        this.restauranteId = newObj;
     }
 
     constructor(private http: Http, @Inject('BASE_URL') _baseUrl: string, private fb: FormBuilder) {
         this.baseUrl = _baseUrl;
         this.listarRestaurantes();
+        this.restauranteId = 1;
     }  
 
 
@@ -48,13 +49,14 @@ export class CadastroPratoComponent implements OnInit {
 
     save() {
 
-        if (this.pratosForm != null && this.selectedDeviceObj != null) {
+        if (this.pratosForm != null) {
 
             let body = {
                 nome: this.pratosForm.value.nome,
                 preco: this.pratosForm.value.preco,
-                restauranteId: this.selectedDeviceObj.id
+                restauranteId: this.restauranteId
             }
+
             let headers = new Headers({ 'Content-Type': 'application/json' });
             let options = new RequestOptions({ headers: null });
 
