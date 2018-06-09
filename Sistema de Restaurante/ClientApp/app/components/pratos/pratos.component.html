@@ -19,7 +19,12 @@
     <tbody *ngFor="let restaurante of restaurantes" >
         <!-- Aqui sera adicionado o carregamento das informações utilizando o Angular-->
             <tr *ngFor="let prato of restaurante.pratos; let i = index" >
-                <td><span class="glyphicon glyphicon-minus text-danger"></span></td>
+                <td>
+                   <button type="button" (click)="removeRow(prato, restaurante.pratos, i)" class="btn btn-sm btn-danger">
+                        <i class="glyphicon glyphicon-minus">
+                        </i>
+                    </button>
+                </td>
                 <td><span class="glyphicon glyphicon-pencil text-info"></span></td>
                 <td>{{restaurante.nome}}</td>
                 <td>{{restaurante.pratos[i].nome}}</td>

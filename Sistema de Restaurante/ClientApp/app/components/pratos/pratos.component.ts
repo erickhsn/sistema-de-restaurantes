@@ -2,6 +2,7 @@
 import { Http } from '@angular/http';
 import { inject } from '@angular/core/testing';
 import { Restaurante } from '../restaurantes/restaurantes.component';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
     selector: 'pratos',
@@ -10,14 +11,29 @@ import { Restaurante } from '../restaurantes/restaurantes.component';
 export class PratosComponent {
     public restaurantes: Restaurante[] | undefined;
 
-    constructor(http: Http, @Inject('BASE_URL') baseUrl: string)
+    baseUrl: string = "";
+
+    constructor(private http: Http, @Inject('BASE_URL') _baseUrl: string)
     {
-        http.get(baseUrl + '/api/restaurante').subscribe(result => {
+        this.baseUrl = _baseUrl;
+        http.get(this.baseUrl + '/api/restaurante').subscribe(result => {
             this.restaurantes = result.json() as Restaurante[];
             console.error(this.restaurantes);
         }, error => console.error(error));
+
+        
         
     }
+
+    removeRow(prato: Prato, pratos: Prato[], index: number) {
+
+        this.http.delete(this.baseUrl + '/api/prato/' + prato.id).subscribe();
+
+        pratos.splice(index, 1);
+
+    }
+
+   
 }
 
 interface Prato {

@@ -19,7 +19,32 @@
 
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
+    <Compile Remove="wwwroot\NovaPasta1\**" />
+    <Compile Remove="wwwroot\NovaPasta\**" />
     <Content Remove="ClientApp\**" />
+    <Content Remove="wwwroot\NovaPasta1\**" />
+    <Content Remove="wwwroot\NovaPasta\**" />
+    <EmbeddedResource Remove="wwwroot\NovaPasta1\**" />
+    <EmbeddedResource Remove="wwwroot\NovaPasta\**" />
+    <None Remove="wwwroot\NovaPasta1\**" />
+    <None Remove="wwwroot\NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ClientApp\dist\058171554e9b9de2db8af80ac63a876a.jpg" />
+    <Content Include="ClientApp\dist\1aa65a7a0f4c464741ac2f7dfd72f583.jpg" />
+    <Content Include="ClientApp\dist\48175f1cdc2ec67cdacda573c8be1d26.jpg" />
+    <Content Include="ClientApp\dist\89889688147bd7575d6327160d64e760.svg" />
+    <Content Include="ClientApp\dist\981c7172213ce70fd26760b7a7a8ab6c.jpg" />
+    <Content Include="ClientApp\dist\main-client.js" />
+    <Content Include="ClientApp\dist\main-client.js.map" />
+    <Content Include="ClientApp\dist\vendor-manifest.json" />
+    <Content Include="ClientApp\dist\vendor.css" />
+    <Content Include="ClientApp\dist\vendor.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
@@ -44,7 +69,7 @@
 
     <!-- Include the newly-built files in the publish output -->
     <ItemGroup>
-      <DistFiles Include="wwwroot\dist\**; ClientApp\dist\**" />
+      <DistFiles Include="ClientApp\dist\**; ClientApp\dist\**" />
       <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
         <RelativePath>%(DistFiles.Identity)</RelativePath>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

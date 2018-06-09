@@ -8,7 +8,7 @@ import { FormBuilder } from '@angular/forms';
     templateUrl: './restaurantes.component.html'
 })
 export class RestaurantesComponent {
-    public restaurantes: Restaurante[] | undefined;
+    public restaurantes?: Restaurante[];
 
     baseUrl: string = "";
 
@@ -24,6 +24,16 @@ export class RestaurantesComponent {
         }, error => console.error(error));
         return this.restaurantes;
     }
+
+    removeRow(restaurante: Restaurante, index: number) {
+
+        this.http.delete(this.baseUrl + '/api/restaurante/' + restaurante.id).subscribe();
+
+        if (this.restaurantes != null)
+            this.restaurantes.splice(index, 1);
+
+    }
+
 }
 
 export interface Restaurante {

@@ -21,6 +21,18 @@ namespace Sistema_de_Restaurante.Controllers
             if (_context.restaurantes.Count() == 0)
             {
                 _context.restaurantes.Add(new Restaurante { nome = "Restaurante 1", pratos = new List<Prato>() });
+                _context.restaurantes.Add(new Restaurante { nome = "Restaurante 2", pratos = new List<Prato>() });
+                _context.SaveChanges();
+                List<Prato> pratos1 = new List<Prato>();
+                List<Prato> pratos2 = new List<Prato>();
+                pratos1.Add(new Prato { nome = "Prato 1", preco = 10, restauranteId = 1, restaurante = _context.restaurantes.Single(res => res.id == 1) });
+                pratos1.Add(new Prato { nome = "Prato 2", preco = 15, restauranteId = 1, restaurante = _context.restaurantes.Single(res => res.id == 1) });
+
+                pratos2.Add(new Prato { nome = "Prato 1", preco = 12, restauranteId = 2, restaurante = _context.restaurantes.Single(res => res.id == 2) });
+                pratos2.Add(new Prato { nome = "Prato 2", preco = 13, restauranteId = 2, restaurante = _context.restaurantes.Single(res => res.id == 2) });
+
+                _context.restaurantes.Single(r => r.id == 1).pratos.AddRange(pratos1);
+                _context.restaurantes.Single(r => r.id == 2).pratos.AddRange(pratos2);
                 _context.SaveChanges();
             }
         }

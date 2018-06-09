@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Sistema_de_Restaurante.Models;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Sistema_de_Restaurante
 {
@@ -26,6 +27,8 @@ namespace Sistema_de_Restaurante
         {
             services.AddDbContext<Context>(opt => opt.UseInMemoryDatabase("Context"));
             services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+         
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
