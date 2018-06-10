@@ -2,6 +2,7 @@
 import { Http } from '@angular/http';
 import { inject } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
     selector: 'restaurantes',
@@ -12,7 +13,7 @@ export class RestaurantesComponent {
 
     baseUrl: string = "";
 
-    constructor(private http: Http, @Inject('BASE_URL') _baseUrl: string, private fb: FormBuilder) {
+    constructor(private http: Http, @Inject('BASE_URL') _baseUrl: string, private fb: FormBuilder, private router: Router) {
         this.baseUrl = _baseUrl;
         this.listarRestaurantes();
     }  
@@ -32,6 +33,18 @@ export class RestaurantesComponent {
         if (this.restaurantes != null)
             this.restaurantes.splice(index, 1);
 
+    }
+
+    alterar(restaurante: Restaurante) {
+        let params: NavigationExtras = {
+            queryParams:
+                {
+                    "isEdit": true,
+                    "restauranteId": restaurante.id,
+                    "restauranteNome": restaurante.nome
+                }
+        };
+        this.router.navigate(["/cadastro/restaurante"], params);
     }
 
 }

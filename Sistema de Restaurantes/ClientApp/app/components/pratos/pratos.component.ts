@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { inject } from '@angular/core/testing';
 import { Restaurante } from '../restaurantes/restaurantes.component';
 import { forEach } from '@angular/router/src/utils/collection';
+import { Router, NavigationExtras } from "@angular/router";;
 
 @Component({
     selector: 'pratos',
@@ -13,12 +14,11 @@ export class PratosComponent {
 
     baseUrl: string = "";
 
-    constructor(private http: Http, @Inject('BASE_URL') _baseUrl: string)
+    constructor(private http: Http, @Inject('BASE_URL') _baseUrl: string, private router: Router)
     {
         this.baseUrl = _baseUrl;
         http.get(this.baseUrl + '/api/restaurante').subscribe(result => {
             this.restaurantes = result.json() as Restaurante[];
-            console.error(this.restaurantes);
         }, error => console.error(error));
 
         
@@ -33,10 +33,24 @@ export class PratosComponent {
 
     }
 
+    alterar(prato: Prato, nome: string) {
+        let params: NavigationExtras = {
+            queryParams:
+                {
+                    "isEdit": true,
+                    "pratoId": prato.id,
+                    "pratoNome": prato.nome,
+                    "pratoPreco": prato.preco,
+                    "restauranteNome": nome
+                }
+        };
+        this.router.navigate(["/cadastro/prato"], params);
+    }
+
    
 }
 
-interface Prato {
+export interface Prato {
     id: number;
     nome: string;
     preco: number;

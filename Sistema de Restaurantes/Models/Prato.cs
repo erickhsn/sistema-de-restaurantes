@@ -32,7 +32,6 @@ namespace Sistema_de_Restaurante.Models
         /// <summary>
         /// Id do restaurante a ele associado
         /// </summary>
-        [JsonRequired]
         public long RestauranteId { get; set; }
 
         /// <summary>

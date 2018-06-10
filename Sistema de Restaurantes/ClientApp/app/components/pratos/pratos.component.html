@@ -25,7 +25,12 @@
                         </i>
                     </button>
                 </td>
-                <td><span class="glyphicon glyphicon-pencil text-info"></span></td>
+                <td>
+                    <button type="button"  class="btn btn-sm btn-info" (click)="alterar(prato, restaurante.nome)">
+                        <i class="glyphicon glyphicon-pencil">
+                        </i>
+                    </button>
+                </td>
                 <td>{{restaurante.nome}}</td>
                 <td>{{restaurante.pratos[i].nome}}</td>
                 <td>{{restaurante.pratos[i].preco}}</td>

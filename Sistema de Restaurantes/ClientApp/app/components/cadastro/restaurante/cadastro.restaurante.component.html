@@ -3,11 +3,17 @@
 <div class="panel panel-default">
     <div class="panel-heading">Dados</div>
     <div class="panel-body">
-        <form novalidate [formGroup]="restauranteForm" (ngSubmit)="save()" >
-            <div class="form-group">
+        <form novalidate [formGroup]="restauranteForm" (ngSubmit)="save()">
+            <div class="form-group" *ngIf="!isEdit; else editavelForm">
                 <label for="nome">Nome do Restaurante</label>
                 <input type="text" class="form-control" formControlName="nome" />
             </div>
+            <ng-template #editavelForm>
+                <div class="form-group">
+                    <label for="nome">Nome do Restaurante</label>
+                    <input type="text" class="form-control" formControlName="nome"  [(ngModel)]="restauranteNome"/>
+                </div>
+            </ng-template>
 
             <div class="form-inline">
                 <button [routerLink]="['/restaurantes']" class="btn btn-danger">

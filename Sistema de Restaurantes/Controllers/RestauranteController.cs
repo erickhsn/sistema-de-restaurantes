@@ -14,12 +14,13 @@ namespace Sistema_de_Restaurante.Controllers
     {
 
         private readonly Context _context;
+        private readonly Boolean isFirst = true;
 
         public RestauranteController(Context context)
         {
             _context = context;
             
-            if (_context.restaurantes.Count() == 0)
+            if (_context.restaurantes.Count() == 0 && isFirst)
             {
                 _context.restaurantes.Add(new Restaurante { Nome = "Restaurante 1", Pratos = new List<Prato>() });
                 _context.restaurantes.Add(new Restaurante { Nome = "Restaurante 2", Pratos = new List<Prato>() });
@@ -35,6 +36,7 @@ namespace Sistema_de_Restaurante.Controllers
                 _context.restaurantes.Single(r => r.Id == 1).Pratos.AddRange(pratos1);
                 _context.restaurantes.Single(r => r.Id == 2).Pratos.AddRange(pratos2);
                 _context.SaveChanges();
+                isFirst = false;
             }
         }
         /// <summary>

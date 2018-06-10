@@ -6,31 +6,46 @@
         <form novalidate [formGroup]="pratosForm" (ngSubmit)="save()">
             <div class="form-group">
                 <label for="SelRestaurantes">Restaurante</label>
-                <select class="form-control" (change)="onChangeObj($event.target.value)">
+                <select *ngIf="!isEdit; else editavel" class="form-control" (change)="onChangeObj($event.target.value)">
                     <option [value]="null">Selecione um restaurante</option>
                     <option [value]="restaurante.id" *ngFor="let restaurante of restaurantes">{{restaurante.nome}}</option>
                 </select>
+                <ng-template #editavel>
+                    <select disabled ng-switch-when="true" class="form-control" (change)="onChangeObj($event.target.value)">
+                        <option [value]="restauranteNome">{{restauranteNome}}</option>
+                    </select>
+                </ng-template>
             </div>
+            <div *ngIf="!isEdit; else editavelForm">
+                <div class="form-group">
+                    <label for="nome">Prato</label>
+                    <input type="text" class="form-control" formControlName="nome" />
+                </div>
+                <div class="form-group">
+                    <label for="nome">Preço(R$)</label>
+                    <input type="text" class="form-control" formControlName="preco" />
+                </div>
+            </div>
+            <ng-template #editavelForm>
+                <div class="form-group">
+                    <label for="nome">Prato</label>
+                    <input type="text" class="form-control" formControlName="nome" [(ngModel)]="pratoNome" />
+                </div>
+                <div class="form-group">
+                    <label for="nome">Preço(R$)</label>
+                    <input type="text" class="form-control" formControlName="preco" [(ngModel)]="pratoPreco" />
+                </div>
+            </ng-template>
 
-            <div class="form-group">
-                <label for="nome">Prato</label>
-                <input type="text" class="form-control" formControlName="nome" />
-            </div>
-            <div class="form-group">
-                <label for="nome">Preço(R$)</label>
-                <input type="text" class="form-control" formControlName="preco" />
-            </div>
-
-            <div class="form-inline">
-                <button [routerLink]="['/pratos']"  class="btn btn-danger">
-                    <span class="glyphicon glyphicon-arrow-left"></span> Cancelar
-                </button>
-                <button type="submit" class="btn btn-success">
-                    <span class="glyphicon glyphicon-floppy-disk"></span> Salvar
-                </button>
-            </div>
-
-            {{selectedDeviceObj | json}}
+                <div class="form-inline">
+                    <button [routerLink]="['/pratos']" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-arrow-left"></span> Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        <span class="glyphicon glyphicon-floppy-disk"></span> Salvar
+                    </button>
+                </div>
+           
         </form>
     </div>
 </div>
