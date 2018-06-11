@@ -6,12 +6,9 @@
         <form >
             <div class="form-group">
                 <label for="nome">Nome:</label>
-                <input type="text" class="form-control" id="nome">
+                <input type="text" placeholder="Pesquisar Restaurante" class="form-control" id="nome" [(ngModel)]="searchText" name="nome">
             </div>
             <div class="form-inline">
-                <button type="submit" class="btn btn-info">
-                    <span class="glyphicon glyphicon-search"></span> Pesquisar
-                </button>
                 <button  class="btn btn-success" [routerLink]="['/cadastro/restaurante']">
                     <span class="glyphicon glyphicon-plus"></span> Cadastrar novo Restaurante
                 </button>
@@ -30,7 +27,7 @@
             <tbody>
 
                 <!-- Aqui sera adicionado o carregamento das informações utilizando o Angular-->
-                <tr *ngFor="let restaurante of restaurantes; let i = index">
+                <tr *ngFor="let restaurante of restaurantes | filter : searchText; let i = index">
                     <td>
                         <button type="button" (click)="removeRow(restaurante, i)" class="btn btn-sm btn-danger">
                             <i class="glyphicon glyphicon-minus">

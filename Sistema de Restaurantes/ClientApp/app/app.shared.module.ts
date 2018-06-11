@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { FilterPipe } from './filter.pipe';
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -24,7 +25,8 @@ import { CadastroRestauranteComponent } from './components/cadastro/restaurante/
         PratosComponent,
         RestaurantesComponent,
         CadastroPratoComponent,
-        CadastroRestauranteComponent
+        CadastroRestauranteComponent,
+        FilterPipe
     ],
     imports: [
         CommonModule,
