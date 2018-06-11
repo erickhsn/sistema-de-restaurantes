@@ -3,17 +3,17 @@
 <div class="panel panel-default">
     <div class="panel-heading">Filtros</div>
     <div class="panel-body">
-        <form >
+        <form>
             <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" placeholder="Pesquisar Restaurante" class="form-control" id="nome" [(ngModel)]="searchText" name="nome">
-            </div>
-            <div class="form-inline">
-                <button  class="btn btn-success" [routerLink]="['/cadastro/restaurante']">
+                <button class="btn btn-success" [routerLink]="['/cadastro/restaurante']">
                     <span class="glyphicon glyphicon-plus"></span> Cadastrar novo Restaurante
                 </button>
             </div>
 
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" placeholder="Pesquisar Restaurante" class="form-control" id="nome" [(ngModel)]="searchText" name="nome">
+            </div>
         </form>
 
         <table class="table table-striped">
