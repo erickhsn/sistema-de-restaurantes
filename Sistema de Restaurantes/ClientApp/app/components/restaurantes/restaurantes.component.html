@@ -3,7 +3,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">Filtros</div>
     <div class="panel-body">
-        <form action="#" method="post">
+        <form >
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" class="form-control" id="nome">
@@ -38,10 +38,10 @@
                         </button>
                     </td>
                     <td>
-                    <button type="button" class="btn btn-sm btn-info" (click)="alterar(restaurante)">
-                        <i class="glyphicon glyphicon-pencil">
-                        </i>
-                    </button>
+                        <button type="button" class="btn btn-sm btn-info" (click)="alterar(restaurante)">
+                            <i class="glyphicon glyphicon-pencil">
+                            </i>
+                        </button>
                     </td>
                     <td>{{restaurante.nome}} </td>
                 </tr>
